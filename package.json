@@ -34,8 +34,8 @@
     "react-transition-group": "^2.5.0"
   },
   "peerDependencies": {
-    "prop-types": "^15.6.2",
     "draft-convert": "^2.0.0",
+    "prop-types": "^15.6.2",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
@@ -52,7 +52,7 @@
     "babel-preset-react": "^6.5.0",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
-    "draft-convert": "^2.0.0",
+    "draft-convert": "^2.1.4",
     "enzyme": "^2.8.2",
     "eslint": "^3.3.1",
     "eslint-config-airbnb": "^10.0.1",
@@ -70,13 +70,13 @@
     "mocha-loader": "^0.7.1",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
-    "react": "15.6.2",
-    "react-dom": "15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-hot-loader": "^4.3.12",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0",
-    "webpack-dev-server": "^3.1.113.1.113.1.11"
+    "webpack-dev-server": "^2.2.0"
   },
   "bugs": {
     "url": "https://github.com/brijeshb42/medium-draft/issues"
