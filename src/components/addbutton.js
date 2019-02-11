@@ -41,35 +41,21 @@ export default class AddButton extends React.Component {
     }
     const block = contentState.getBlockForKey(selectionState.anchorKey);
     const bkey = block.getKey();
-    if (block.getLength() > 0) {
-      this.hideBlock();
-      return;
-    }
+
     if (block.getType() !== this.blockType) {
       this.blockType = block.getType();
-      if (block.getLength() === 0) {
-        setTimeout(this.findNode, 0);
-      }
+      setTimeout(this.findNode, 0);
       this.blockKey = bkey;
       return;
     }
     if (this.blockKey === bkey) {
       // console.log('block exists');
-      if (block.getLength() > 0) {
-        this.hideBlock();
-      } else {
-        this.setState({
-          visible: true,
-        });
-      }
+      this.setState({
+        visible: true,
+      });
       return;
     }
     this.blockKey = bkey;
-    if (block.getLength() > 0) {
-      // console.log('no len');
-      this.hideBlock();
-      return;
-    }
     setTimeout(this.findNode, 0);
   }
 
@@ -99,10 +85,6 @@ export default class AddButton extends React.Component {
   findNode() {
     // eslint-disable-next-line no-undef
     const node = getSelectedBlockNode(window);
-    if (node === this.node) {
-      // console.log('Node exists');
-      return;
-    }
     if (!node) {
       // console.log('no node');
       this.setState({
@@ -113,6 +95,8 @@ export default class AddButton extends React.Component {
     }
     // const rect = node.getBoundingClientRect();
     this.node = node;
+    console.log(node.offsetTop - 3);
+    
     this.setState({
       visible: true,
       style: {
@@ -122,7 +106,7 @@ export default class AddButton extends React.Component {
   }
 
   render() {
-    if (!this.state.visible) {
+    if (!this.state.visible && this.props.addButtonAutoclose) {
       return null;
     }
     return (
@@ -173,4 +157,5 @@ AddButton.propTypes = {
   getEditorState: PropTypes.func.isRequired,
   setEditorState: PropTypes.func.isRequired,
   sideButtons: PropTypes.arrayOf(PropTypes.object),
+  addButtonAutoclose: PropTypes.bool.isRequired,
 };
